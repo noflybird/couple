@@ -12,12 +12,11 @@ from couple.messager.consumers import MessagesConsumer
 from couple.notifications.consumers import NotificationsConsumer
 
 application = ProtocolTypeRouter({
-    "websocket": AllowedHostsOriginValidator(
+    'websocket': AllowedHostsOriginValidator(
         AuthMiddlewareStack(
-                URLRouter([
+            URLRouter([
                 path('ws/notifications/', NotificationsConsumer),
-                path('ws/<str:username>/', MessagesConsumer)
-
+                path('ws/<str:username>/', MessagesConsumer),
             ])
         )
     )

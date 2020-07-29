@@ -72,14 +72,11 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "django_celery_beat",
     'django_comments',
     "taggit",
     "markdownx",
     "haystack",
     "djcelery_email",
-    'xadmin',
-    'crispy_forms',
 ]
 
 LOCAL_APPS = [
@@ -152,7 +149,7 @@ MIDDLEWARE = [
 # STATIC
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(ROOT_DIR.path("static"))
+STATIC_ROOT = str(APPS_DIR.path("static"))
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
@@ -197,7 +194,6 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "couple.utils.context_processors.settings_context",
             ],
         },
     }

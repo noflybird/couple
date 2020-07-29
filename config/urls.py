@@ -3,7 +3,6 @@ from django.conf.urls.static import static
 
 from django.urls import include, path
 from django.views import defaults as default_views
-import xadmin
 
 from couple.news.views import NewsListView
 
@@ -15,18 +14,18 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     # path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path("markdownx/", include('markdownx.urls')),
-    path('comments/', include('django_comments.urls')),
-    path('admin/', xadmin.site.urls),
+
 
     path('', NewsListView.as_view(), name='home'),
     path('users/', include('couple.users.urls', namespace='users')),
     path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
+    path("markdownx/", include('markdownx.urls')),
+    path('comments/', include('django_comments.urls')),
+
     path("news/", include('couple.news.urls', namespace='news')),
     path("articles/", include('couple.articles.urls', namespace='articles')),
     path("qa/", include('couple.qa.urls', namespace='qa')),
-    path("messager/", include('couple.messager.urls', namespace='messages')),
+    path("messages/", include('couple.messager.urls', namespace='messages')),
     path("notifications/", include('couple.notifications.urls', namespace='notifications')),
     path("search/", include('haystack.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
