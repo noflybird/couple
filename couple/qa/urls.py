@@ -4,7 +4,7 @@
 """
 from django.urls import path
 
-from qa.views import (UnansweredQuestionListView, AnsweredQuestionListView, CreateAnswerView,
+from couple.qa.views import (UnansweredQuestionListView, AnsweredQuestionListView, CreateAnswerView,
                       CreateQuestionView, question_vote, accept_answer, answer_vote,
                       QuestionDetailView, QuestionListView)
 
